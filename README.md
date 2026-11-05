@@ -5,6 +5,7 @@ Public skills for AI coding agents (Claude Code, Cursor, Codex, Grok). Each skil
 | Skill | What it does |
 |---|---|
 | [agent-cli-builder](skills/agent-cli-builder/SKILL.md) | Design and build a CLI that gives agents safe access to a service, instead of an MCP server. Output format, exit codes, safety model, auth that survives real use, docs, tests. Distilled from [tgbot-cli](https://github.com/swtormy/tgbot-cli). |
+| [send-dev-diagrams](skills/send-dev-diagrams/SKILL.md) | Render architecture and process flows as styled Mermaid PNGs and send them to Telegram while planning or building. |
 
 ## Install
 
