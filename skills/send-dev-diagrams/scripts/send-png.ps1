@@ -37,13 +37,8 @@ if (-not $token -or -not $chatId) {
 }
 
 $api = "https://api.telegram.org/bot$token/sendPhoto"
-$form = @{
-    chat_id = $chatId
-    caption = $Caption
-    photo   = $png
-}
-$resp = Invoke-RestMethod -Uri $api -Method Post -Form $form
-if (-not $resp.ok) {
+$raw = & curl.exe -sS -X POST $api -F "chat_id=$chatId" -F "caption=$Caption" -F "photo=@$($png.FullName);type=image/png"
+if ($LASTEXITCODE -ne 0 -or $raw -notmatch '"ok"\s*:\s*true') {
     throw "sendPhoto failed"
 }
 Write-Output 'sent'
